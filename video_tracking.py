@@ -234,12 +234,13 @@ for i in range(0, video_frame_number):
     print('Time required: ' + str(round(time.time() - time_start, 1)) + 'sec')
 
     
-    d['People(this frame)'] = len(tracker)
-    d['People(cumulative)'] = tracking_people_count
-    d['Frame'] = video_frame_number
-    d['Time required'] = round(time.time() - time_start, 1)
+    a = len(tracker)
+    b = tracking_people_count
+    c = video_frame_number
+    d = round(time.time() - time_start, 1)
     
-    final.append(d)
+    final.append([a,b,c,d])
+    
     image_img_numpy = np.asarray(image_img)
 
     pose_frame_list.append(image_img_numpy)
@@ -253,8 +254,7 @@ for i in range(0, video_frame_number):
 with open("testset/results.csv", "w") as csv_file:
         writer = csv.writer(csv_file, delimiter=',')
         for line in final:
-            ls = [line['Time required'], line['People(this frame)'], line['People(cumulative)'], line['Frame']]
-            writer.writerow(ls)
+            writer.writerow(line)
 
 video_pose = ImageSequenceClip(pose_frame_list, fps=video.fps)
 video_pose.write_videofile("testset/" + video_output_name + "_tracking." + video_type, fps=video.fps, progress_bar=False)
