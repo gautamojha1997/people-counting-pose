@@ -251,7 +251,7 @@ for i in range(0, video_frame_number):
     # print(image_name)
     # image_img.save(image_name)
 
-with open("testset/results.csv", "w") as csv_file:
+with open("testset/results.csv", "w", newline='') as csv_file:
         writer = csv.writer(csv_file, delimiter=',')
         for line in final:
             writer.writerow(line)
