@@ -115,7 +115,6 @@ tracker = []
 final = []
 
 for i in range(0, video_frame_number):
-    d = {}
     # Save i-th frame as image
     image = video.get_frame(i/video.fps)
 
