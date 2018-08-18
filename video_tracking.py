@@ -250,7 +250,7 @@ for i in range(0, video_frame_number):
     # print(image_name)
     # image_img.save(image_name)
 
-<<<<<<< HEAD
+
 # csv code old
 # with open("testset/results.csv", "w") as csv_file:
 #         writer = csv.writer(csv_file, delimiter=',')
@@ -261,7 +261,7 @@ with open("testset/results.csv", "w", newline='') as csv_file:
         writer = csv.writer(csv_file, delimiter=',')
         for line in final:
             writer.writerow(line)
->>>>>>> a8025e706202d9fda900c3d52caad643775a1425
+
 
 
 # csv code new
