@@ -3,7 +3,7 @@
 import time
 time_start = time.time()
 
-import csv
+import pandas as pd
 import sys
 import os
 import argparse as ap
@@ -250,12 +250,16 @@ for i in range(0, video_frame_number):
     # print(image_name)
     # image_img.save(image_name)
 
-with open("testset/results.csv", "w") as csv_file:
-        writer = csv.writer(csv_file, delimiter=',')
-        for line in final:
-            ls = [line['Time required'], line['People(this frame)'], line['People(cumulative)'], line['Frame']]
-            writer.writerow(ls)
+# csv code old
+# with open("testset/results.csv", "w") as csv_file:
+#         writer = csv.writer(csv_file, delimiter=',')
+#         for line in final:
+#             writer.writerow(line['Time required'], line['People(this frame)'], line['People(cumulative)'], line['Frame'])
 
+
+# csv code new
+u = pd.Dataframe(final)
+u.to_csv("testset/results.csv",index = False)
 video_pose = ImageSequenceClip(pose_frame_list, fps=video.fps)
 video_pose.write_videofile("testset/" + video_output_name + "_tracking." + video_type, fps=video.fps, progress_bar=False)
 
