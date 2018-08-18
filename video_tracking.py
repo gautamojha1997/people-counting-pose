@@ -256,7 +256,6 @@ for i in range(0, video_frame_number):
 #         writer = csv.writer(csv_file, delimiter=',')
 #         for line in final:
 #             writer.writerow(line['Time required'], line['People(this frame)'], line['People(cumulative)'], line['Frame'])
-=======
 with open("testset/results.csv", "w", newline='') as csv_file:
         writer = csv.writer(csv_file, delimiter=',')
         for line in final:
