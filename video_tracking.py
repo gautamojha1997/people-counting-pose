@@ -115,7 +115,6 @@ tracker = []
 final = []
 
 for i in range(0, video_frame_number):
-    d = {}
     # Save i-th frame as image
     image = video.get_frame(i/video.fps)
 
@@ -234,12 +233,13 @@ for i in range(0, video_frame_number):
     print('Time required: ' + str(round(time.time() - time_start, 1)) + 'sec')
 
     
-    d['People(this frame)'] = len(tracker)
-    d['People(cumulative)'] = tracking_people_count
-    d['Frame'] = video_frame_number
-    d['Time required'] = round(time.time() - time_start, 1)
+    a = len(tracker)
+    b = tracking_people_count
+    c = video_frame_number
+    d = round(time.time() - time_start, 1)
     
-    final.append(d)
+    final.append([a,b,c,d])
+    
     image_img_numpy = np.asarray(image_img)
 
     pose_frame_list.append(image_img_numpy)
@@ -250,11 +250,18 @@ for i in range(0, video_frame_number):
     # print(image_name)
     # image_img.save(image_name)
 
+<<<<<<< HEAD
 # csv code old
 # with open("testset/results.csv", "w") as csv_file:
 #         writer = csv.writer(csv_file, delimiter=',')
 #         for line in final:
 #             writer.writerow(line['Time required'], line['People(this frame)'], line['People(cumulative)'], line['Frame'])
+=======
+with open("testset/results.csv", "w", newline='') as csv_file:
+        writer = csv.writer(csv_file, delimiter=',')
+        for line in final:
+            writer.writerow(line)
+>>>>>>> a8025e706202d9fda900c3d52caad643775a1425
 
 
 # csv code new
