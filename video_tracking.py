@@ -258,7 +258,7 @@ for i in range(0, video_frame_number):
 
 
 # csv code new
-u = pd.Dataframe(final)
+u = pd.DataFrame(final)
 u.to_csv("testset/results.csv",index = False)
 video_pose = ImageSequenceClip(pose_frame_list, fps=video.fps)
 video_pose.write_videofile("testset/" + video_output_name + "_tracking." + video_type, fps=video.fps, progress_bar=False)
